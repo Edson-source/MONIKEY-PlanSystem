@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'index.apps.IndexConfig',
     'user.apps.UserConfig',
-    'planos.apps.PlanosConfig',
+    'plan.apps.PlanConfig',
     'links.apps.LinksConfig',
 ]
 
