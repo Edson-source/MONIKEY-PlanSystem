@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
+from .views import *
 
 urlpatterns = [
-    path('links/', views.links),
+    path('links/', links),
+    path('<str:username>/admin/', admin_profile_view, name="username"),
 ]
