@@ -107,18 +107,6 @@
                   <p>Online</p>
                 </div>
               </div>
-              <div class="ms-auto">
-                <div class="dropdown">
-                  <button class="btn btn-link text-secondary ps-0 pe-2" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-ellipsis-v text-lg"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-end me-sm-n4 me-n3" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="javascript:;">Action</a>
-                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                  </div>
-                </div>
-              </div>
             </div>
             <p class="text-sm mt-3"> Texto motivacional </p>
             <hr class="horizontal dark">
@@ -129,8 +117,10 @@
         </div>
       </div>
     </div>
-<div class="row">
-    {% csrf_token %}
-    <a href="/{{user.username}}/admin"><button type="button" class="btn btn-secondary btn-lg w-100">Block level button</button></a>
+  <section class="py-3">
+  <div class="row">
+      {% csrf_token %}
+      <a href="/{{user.username}}/admin"><button type="button" class="btn btn-secondary btn-lg w-100">Block level button</button></a>
+  </div>
 </div>
 {% endblock %}
