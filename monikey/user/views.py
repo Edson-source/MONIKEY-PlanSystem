@@ -31,13 +31,14 @@ def register_user(request):
     return render(request, 'register.html', {'form_usuario': form_usuario})
 
 def login_user(request):
+    
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
         usuario = authenticate(request, username=username, password=password)
         if usuario is not None:
             login(request, usuario)
-            return redirect('index')
+            return redirect(f'/{usuario.username}/admin/')
         else:
             form_login = AuthenticationForm()
             form_login.fields['username'].widget.attrs['style'] = "background:#FFFFFF; height: calc(3.5rem + 2px); padding: 1rem 0.75rem; display: block; width: 100%; padding: 0.375rem 0.75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #6C7293; background-color: #FFFFFF; background-clip: padding-box; border: 1px solid #000; appearance: none; border-radius: 5px; transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;"
@@ -66,3 +67,13 @@ def change_password(request):
     else:
         form_senha = PasswordChangeForm(request.user)
     return render(request, 'change_password.html', {'form_senha': form_senha})
+
+
+def user_view(request, pk):
+    user = {}
+    user = User.objects.get(pk=pk)
+    return render(request, 'user.html', {'user': user})
+
+def profile_view(request, username):
+    user = User.objects.get(username=username)
+    return render(request, 'index.html', {'user': user})
