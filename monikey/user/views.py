@@ -51,10 +51,10 @@ def login_user(request):
     return render(request, 'login.html', {'form_login': form_login})
 
 
-@login_required(login_url='/login')
+@login_required(login_url='/login/')
 def logout_user(request):
     logout(request)
-    return redirect('index')
+    return redirect('/')
 
 @login_required(login_url='/login')
 def change_password(request):
