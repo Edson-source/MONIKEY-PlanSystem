@@ -1,11 +1,11 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.urls import path, include
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.models import User
-from rest_framework import routers, serializers, viewsets
 from user.serializer import UserSerializer
+from rest_framework import routers, serializers, viewsets
 # Create your views here.
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -75,5 +75,6 @@ def user_view(request, pk):
     return render(request, 'user.html', {'user': user})
 
 def profile_view(request, username):
+    user = {}
     user = User.objects.get(username=username)
     return render(request, 'index.html', {'user': user})

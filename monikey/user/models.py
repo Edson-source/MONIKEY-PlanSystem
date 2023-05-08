@@ -4,16 +4,17 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class Personality (models.Model):
+    type = models.CharField(max_length=4)
+    figure = RichTextUploadingField()
     name = models.CharField(max_length=50)
-    figure = models.CharField(max_length=50)
 
 class Interest (models.Model):
+    figure = RichTextUploadingField()
     name = models.CharField(max_length=50)
-    figure = models.CharField(max_length=50)
 
 class Hobbies (models.Model):
+    figure = RichTextUploadingField()
     name = models.CharField(max_length=50)
-    figure = models.CharField(max_length=50)
 
 class Profile (models.Model):
     CHOICES = (
@@ -28,16 +29,16 @@ class Profile (models.Model):
     profession = models.CharField(max_length=20)
     education = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
-    birth_date = models.DateField((""), auto_now=False, auto_now_add=False)
+    birth_date = models.DateField(verbose_name="Data de Nascimento", auto_now=False, auto_now_add=False)
     gender = models.CharField(max_length=1, choices=CHOICES, blank=False, null=False)
     twitter = models.URLField((""), max_length=50)
     facebook = models.URLField((""), max_length=50)
     instagram = models.URLField((""), max_length=200)
-    bio = models.TextField(max_length=50)
+    bio = models.TextField(max_length=200)
 
     personality = models.ForeignKey(Personality, on_delete=models.CASCADE)
-    interest = models.ManyToManyField(Interest, on_delete=models.CASCADE)
-    hobbies = models.ManyToManyField(Hobbies, on_delete=models.CASCADE)
+    interest = models.ManyToManyField(Interest)
+    hobbies = models.ManyToManyField(Hobbies)
 
     def __str__(self):
         return self.first_name

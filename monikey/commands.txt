@@ -64,7 +64,7 @@ pip freeze > requirements.txt
 pip install -r  requirements.txt
 
 // apaga os requeriments que vc estava usando
-pip uninstall -r requirementstmp.txt -y
+pip uninstall -r requirements.txt -y
 
 // install negocio 
 pip install django-cors-headers

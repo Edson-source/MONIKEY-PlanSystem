@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-nac_s(99qn4e*4#k-s8=iut=yy7z!3*o^rdd64_id1xxrya)a%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.112',
-                 '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'plan.apps.PlanConfig',
     'links.apps.LinksConfig',
+    'django',
     'rest_framework',
     'ckeditor',
     'ckeditor_uploader',
