@@ -31,9 +31,9 @@ class Profile (models.Model):
     address = models.CharField(max_length=100)
     birth_date = models.DateField(verbose_name="Data de Nascimento", auto_now=False, auto_now_add=False)
     gender = models.CharField(max_length=1, choices=CHOICES, blank=False, null=False)
-    twitter = models.URLField((""), max_length=50)
-    facebook = models.URLField((""), max_length=50)
-    instagram = models.URLField((""), max_length=200)
+    twitter = models.URLField(verbose_name="Twitter", max_length=50)
+    facebook = models.URLField(verbose_name="Facebook", max_length=50)
+    instagram = models.URLField(verbose_name="Instagram", max_length=200)
     bio = models.TextField(max_length=200)
 
     personality = models.ForeignKey(Personality, on_delete=models.CASCADE)
